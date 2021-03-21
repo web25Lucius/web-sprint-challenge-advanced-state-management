@@ -2,16 +2,19 @@ import React from 'react';
 import {connect} from 'react-redux';
 import { fetchSmurfs } from '../actions/actions';
 
+
 const Smurf = (props) => {
-    console.log(props);
+    
       return (
         <div>
+             <button onClick={props.fetchSmurfs}>Fetch Smurf</button>
             <p>
-                Name: {props.SmurfArr && props.SmurfArr.name} <br />
-                Age: {props.SmurfArr && props.SmurfArr.age} <br />
-                Size: {props.SmurfArr && props.SmurfArr.height} 
+                Name: {props.smurfArr && props.smurfArr.name} <br />
+                Age: {props.smurfArr && props.smurfArr.age} <br />
+                Size: {props.smurfArr && props.smurfArr.height} 
             </p>
-            <button onClick={props.fetchSmurfs}>Fetch Smurf</button>
+            {console.log("These are props from Smurf" + props)}
+           
             <h4>Thank you, come again!</h4>
         </div>
     )
@@ -21,12 +24,16 @@ const Smurf = (props) => {
 const mapStateToProps = state =>{
        return {
          isLoading: state.isLoading, 
-         smurfArr: state.SmurfArr
+         smurfArr: state.smurfArr
         };
 
 
         };
-const mapDispatchToProps = {fetchSmurfs};
+// const mapDispatchToProps = {fetchSmurfs};
+const mapDispatchToProps = {
+    fetchSmurfs
+}
+
 
 export default connect(mapStateToProps, mapDispatchToProps
     )(Smurf)

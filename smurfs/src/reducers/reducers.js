@@ -4,7 +4,9 @@ export const FETCH_SMURFS_SUCCESS= "FETCH_SMURFS_SUCCESS";
 export const FETCH_SMURFS_ERROR= "FETCH_SMURFS_ERROR"; 
 export const FETCH_SMURFS_START = "FETCH_SMURFS_START";
 
-
+// export const setSmurf = (name, age, height) => {
+//     return ({type: SET_SMURF, payload: { name: name, age: age, height: height}})
+// }
 
 export const initialState= {
     isLoading: false,

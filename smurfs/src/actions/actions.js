@@ -3,9 +3,6 @@ import axios from 'axios';
 
 //import {fetchAPI} from '../components/fetch';
 
-
-
-
 export const fetchSmurfsLoading = ()=> {
     return {type: FETCH_SMURFS_LOADING, payload: initialState}
 }
@@ -18,10 +15,11 @@ export const fetchSmurfs = () => (dispatch) => {
          .then((res)=> {
              dispatch({type: FETCH_SMURFS_SUCCESS, payload: res.data })            
              console.log("JSON Smurf API fetch works and is calling:", res.data)
+             
          })
          .catch
          ((err)=>{
-            // dispatch({type: FETCH_SMURFS_ERROR, payload: err.response})
+            dispatch({type: FETCH_SMURFS_ERROR, payload: err.response})
              console.log(`Error message: ${err}`)})
          }
          
