@@ -10,7 +10,11 @@ export const FETCH_SMURFS_START = "FETCH_SMURFS_START";
 
 export const initialState= {
     isLoading: false,
-    smurfArr : []
+    smurfArr : [{
+        name: "",
+        age: 0, 
+        height: ""
+    }]
 }
 export const smurfReducer = (state = initialState, action) => {
    switch (action.type) {
@@ -20,8 +24,12 @@ export const smurfReducer = (state = initialState, action) => {
             isLoading: true
             }
        
-       case FETCH_SMURFS_START:
-        return {...state}
+    //    case FETCH_SMURFS_START:
+    //    return{...state,
+    //         smurfArr: action.payload,
+    //         isLoading: false 
+      
+    //      }
        
        case FETCH_SMURFS_SUCCESS: 
         return {...state,

@@ -4,17 +4,15 @@ import { fetchSmurfs } from '../actions/actions';
 
 
 const Smurf = (props) => {
-    
+    console.log("These are props from Smurf " + props)
       return (
         <div>
              <button onClick={props.fetchSmurfs}>Fetch Smurf</button>
             <p>
-                Name: {props.smurfArr && props.smurfArr.name} <br />
-                Age: {props.smurfArr && props.smurfArr.age} <br />
-                Size: {props.smurfArr && props.smurfArr.height} 
+                Name: {props.smurfArr && props.smurfArr[0].name} <br />
+                Age: {props.smurfArr && props.smurfArr[0].age} <br />
+                Size: {props.smurfArr && props.smurfArr[0].height} 
             </p>
-            {console.log("These are props from Smurf" + props)}
-           
             <h4>Thank you, come again!</h4>
         </div>
     )
@@ -24,16 +22,16 @@ const Smurf = (props) => {
 const mapStateToProps = state =>{
        return {
          isLoading: state.isLoading, 
-         smurfArr: state.smurfArr
+         smurfArr: state.smurfArr 
         };
 
 
         };
 // const mapDispatchToProps = {fetchSmurfs};
-const mapDispatchToProps = {
-    fetchSmurfs
-}
+// const mapDispatchToProps = {
+//     fetchSmurfs
+// }
 
 
-export default connect(mapStateToProps, mapDispatchToProps
+export default connect(mapStateToProps, {fetchSmurfs}
     )(Smurf)

@@ -9,7 +9,7 @@ export const fetchSmurfsLoading = ()=> {
 
 export const fetchSmurfs = () => (dispatch) => {
     
-    dispatch({ type: FETCH_SMURFS_START })
+    // dispatch({ type: FETCH_SMURFS_START })
     axios
          .get("http://localhost:3333/smurfs")
          .then((res)=> {
